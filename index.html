@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- 进击的火龙果队 网页设计 队员 姜世达 方润豪 李承骏 徐长坤 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进击的火龙果</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#产品介绍" id="productLink">产品介绍</a></li>
+                <li><a href="#硬件管理" id="hardwareLink">大棚管理</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content" id="productContent">
+        <div class="content-container">
+            <section class="title">
+                <h1>基于ZigBee技术的火龙果农业大棚智能监测控制系统</h1>
+            </section>
+            <section class="X">
+
+            </section>
+            <section class="news"> 
+                <div class="info">
+                    <h2>产品背景</h2>
+                    <p>火龙果味道香甜、营养丰富、土地产出率高是促进农民脱贫增收和乡村振兴的重要抓手。中国是世界第二大火龙果生产国，
+                        但火龙果产区大多集中在相对不富裕地区，
+                        坡地果园居多，规模化、机械化与产业化水平不高，
+                        并且生长过程需要严格控制环境因素。
+                        所以通过物联网技术运用到传统火龙果农业中去，
+                        建立以Zigbee无线通信技术为主的关于感知层、网络层、平台层、应用层、控制层为一体关于火龙果的智慧农业物联网体系
+                        使传统火龙果农业更具有智慧，从而增加农民的收益和市场竞争力。</p>
+                    <h3>项目摘要</h3>
+                    <p>感知层采用DHT11温湿度传感器，BH1750光照传感器，
+                        土壤湿度传感器，MQ-2传感器来实时监测环境，
+                        主控射频芯片采用CC2530构成ZigBee通信模块之间的组网，
+                        并将火龙果生长环境监测数据通过Zigbee终端发送给Zigbee协调器。
+                        网络层的Zigbee协调器通过Esp8266WIFI模块将接收到的数据以4G网络为桥梁上传到OneNet云服务器。
+                        平台层的OneNet云服务器能可视化数据并将数据上传到应用层。
+                        应用层的微信小程序和网页端设计能实时接收数据并且能实时下发指令给控制层。
+                        控制层Stm32F103C8T6单片机接收指令去实时控制补光灯、风扇、加热板、雾化器、水泵设备的开关和阀门。
+                        从而建立Zigbee无线通信技术为主的关于感知层、网络层、平台层、应用层、控制层为一体的火龙果生长环境智能监测控制系统。
+                    </p>
+                </div>
+            </section>
+            <section class="X">
+
+            </section>
+            <section class="news2">
+                <h3>系统直观设计图</h3>
+            </section>
+            <section class="X">
+
+            </section>
+        </div>
+    </div>
+
+    <div class="content" id="hardwareContent" style="display: none;">
+        <section class="k">
+            <section class="Y">
+                <h1>欢迎来到智慧大棚管理页面</h1>
+                <!-- 使用按钮容器来居中按钮和标题 -->
+                <div class="buttons-container">
+                    <a href="https://open.iot.10086.cn/view/main/index.html#/share2d?id=653bb4dc2863200040ae8ef4"><button>大棚控制1</button></a>
+                    <a href="https://open.iot.10086.cn/view/main/index.html#/share2d?id=653bb4dc2863200040ae8ef4"><button>大棚控制2</button></a>
+                    <a href="https://open.iot.10086.cn/view/main/index.html#/share2d?id=653bb4dc2863200040ae8ef4"><button>大棚控制3</button></a>
+                    <a href="https://open.iot.10086.cn/view/main/index.html#/share2d?id=653bb4dc2863200040ae8ef4"><button>大棚控制4</button></a>
+                </div>
+            </section>
+            <section class="Y">
+                <!-- 其他硬件管理页面内容 -->
+                <a href="#productContent" id="returnToProduct">返回产品介绍</a>
+            </section>
+        </section>
+    </div>
+
+    <div id="loginModal" class="modal" style="display: none;">
+        <caption class="L">
+        <div class="modal-content">
+            <h2>用户登录</h2>
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password">
+            <button id="loginButton">登录</button>
+        </div>
+        </caption>
+    </div>
+
+    <div id="overlay" class="overlay" style="display: none;"></div>
+
+    <footer>
+        <p>© 2023 进击的火龙果队</p>
+    </footer>
+
+    <script>
+        // 用户凭据，用户名和密码
+        const users = {
+            "jjdhlg": "666666",
+            "FRH": "666666",
+            "XCK": "666666",
+            "LCJ": "666666",
+            "JSD": "666666"
+        };
+
+        // 获取相关元素
+        const hardwareLink = document.getElementById("hardwareLink");
+        const returnToProductLink = document.getElementById("returnToProduct");
+        const loginModal = document.getElementById("loginModal");
+        const overlay = document.getElementById("overlay");
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const loginButton = document.getElementById("loginButton");
+        const productContent = document.getElementById("productContent");
+        const hardwareContent = document.getElementById("hardwareContent");
+
+        // 添加事件监听器
+        hardwareLink.addEventListener("click", function(event) {
+            event.preventDefault(); // 防止默认跳转行为
+            openLoginModal();
+        });
+
+        returnToProductLink.addEventListener("click", function(event) {
+            event.preventDefault();
+            productContent.style.display = "block";
+            hardwareContent.style.display = "none"; // 切换显示和隐藏内容
+        });
+
+        overlay.addEventListener("click", function() {
+            closeLoginModal();
+        });
+
+        loginButton.addEventListener("click", function() {
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+
+            if (users[username] === password) {
+                alert("登录成功"); // 这里可以替换成实际的登录处理
+                closeLoginModal();
+                hardwareContent.style.display = "block"; // 进入硬件管理页面
+                productContent.style.display = "none"; // 隐藏产品介绍页面
+            } else {
+                alert("登录失败，请检查用户名和密码");
+            }
+        });
+
+        function openLoginModal() {
+            loginModal.style.display = "block";
+            overlay.style.display = "block";
+        }
+
+        function closeLoginModal() {
+            loginModal.style.display = "none"; // 修正此处的样式设置
+            overlay.style.display = "none"; // 修正此处的样式设置
+        }
+    </script>
+</body>
+</html>
